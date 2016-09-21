@@ -34,7 +34,15 @@ object Options {
    * - does not exist: 					"not existing"
    */
   def roomState(rooms: Map[Int, Option[String]], room: Int): String = {
-    error("Fix me")
+    rooms.get(room) match {
+      case None => "not existing"
+      case Some(value) =>
+        value match {
+          case Some("locked") => "not available"
+          case None => "empty"
+          case Some(s) => s
+        }
+    }
   }
 
   /**
@@ -43,7 +51,20 @@ object Options {
    * Hint: define a helper function that computes a room's occupancy
    * to convert a possible numeric String (e.g. Some("12")) to an integer
    */
+
+  def stateToInt(state: Option[String]): Int = {
+    state match {
+      case Some("locked") | None => 0
+      case Some(int) => int.toInt
+    }
+  }
+
+
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
-    error("Fix me")
+    val l =
+      for ((_, state) <- rooms)
+        yield stateToInt(state)
+
+    l.sum
   }
 }

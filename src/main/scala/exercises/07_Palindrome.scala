@@ -8,6 +8,10 @@ object Palindrome {
    *  Hint: the Scala collections API is your friend
    *  http://docs.scala-lang.org/overviews/collections/overview.html 
    */
-  def isPalindrome(s: String): Boolean = throw new NotImplementedError
+  def isPalindrome(s: String): Boolean = {
+    val removeWhiteSpace: String = s.filter(_.isLetter).toLowerCase
+
+    removeWhiteSpace == removeWhiteSpace.reverse
+  }
 
 }
