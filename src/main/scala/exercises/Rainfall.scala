@@ -15,5 +15,12 @@ object Rainfall {
    *  Hint: the Scala collections API is your friend
    *  http://docs.scala-lang.org/overviews/collections/overview.html 
    */
-  def rainfall(data: Seq[Double]): Double = throw new NotImplementedError
+  def rainfall(data: Seq[Double]): Double = {
+    val usefulData = data.indexOf(-999) match {
+      case -1 => data.filter(_ > 0)
+      case i => data.take(i).filter(_ > 0)
+    }
+
+    usefulData.sum / usefulData.length
+  }
 }

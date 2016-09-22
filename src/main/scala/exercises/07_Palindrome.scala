@@ -9,9 +9,9 @@ object Palindrome {
    *  http://docs.scala-lang.org/overviews/collections/overview.html 
    */
   def isPalindrome(s: String): Boolean = {
-    val removeWhiteSpace: String = s.filter(_.isLetter).toLowerCase
+    val allAlpha: String = s.filter(_.isLetter).toLowerCase
 
-    removeWhiteSpace == removeWhiteSpace.reverse
+    allAlpha == allAlpha.reverse
   }
 
 }

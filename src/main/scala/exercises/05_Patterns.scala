@@ -63,8 +63,8 @@ object PatternMatching {
     case in: String => s"A string with length ${in.length}"
     case in: Int if in > 0 => "A positive integer"
     case Person(name, _) => s"A person with name: $name"
-    case in: Seq[Any] if in.length > 10 => "Seq with more than 10 elements"
-    case in: Seq[Any] if in.length >= 3 => s"first: ${in.head}, second: ${in(1)}, rest: ${in.drop(2)}"
+    case in: Seq[_] if in.length > 10 => "Seq with more than 10 elements"
+    case in: Seq[_] if in.length >= 3 => s"first: ${in.head}, second: ${in(1)}, rest: ${in.drop(2)}"
     case null => "A null value"
     case _ => "Some Scala class"
   }

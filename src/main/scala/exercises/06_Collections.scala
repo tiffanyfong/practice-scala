@@ -32,6 +32,11 @@ object Collections {
    */
   def firstElementInList[T](l: List[T]): T = {
     l.head
+
+    // fun version
+    l match {
+      case first :: _ => first
+    }
   }
 
   /**
@@ -39,6 +44,9 @@ object Collections {
    */
   def sumOfList(l: List[Int]): Int = {
     l.sum
+
+    // fun version
+    l.foldLeft(0)(_ + _)
   }
 
   /**
@@ -52,6 +60,12 @@ object Collections {
    */
   def lastElementInList[T](l: List[T]): T = {
     l.last
+
+    // fun version
+    l match {
+      case first :: Nil => first
+      case first :: rest => lastElementInList(rest)
+    }
   }
 
    /**
@@ -103,7 +117,7 @@ object Collections {
    * to implement in your own free-style way.
    */
   def elementExists[T](l: List[T], e: T): Boolean = {
-    l.exists(e => true)
+    l.contains(e)
   }
 
   /**
@@ -129,10 +143,9 @@ object Collections {
    * Implement it whatever way suites you best. Hint: it can be done in a 
    * neat way using recursion. 
    */
-  def tails[T](l: List[T]): List[List[T]] = l match {
-    case List() => List()
-    case _ => l :: tails(l.tail)
-  }
+  def tails[T](l: List[T]): List[List[T]] =
+    if (l.isEmpty) Nil
+    else l :: tails(l.tail)
   
   /**
    * Find the maximum element in a list, e.g. maxElementInList(List(1,9,3,5)) == 9
@@ -157,8 +170,7 @@ object Collections {
    * method above
    */
   def sumOfMany(l: List[Int]*): List[Int] = {
-    if (l.isEmpty)
-      List()
+    if (l.isEmpty) Nil
     else l.reduceLeft(sumOfTwo)
   }
 

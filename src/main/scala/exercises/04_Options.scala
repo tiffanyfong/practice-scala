@@ -38,8 +38,8 @@ object Options {
       case None => "not existing"
       case Some(value) =>
         value match {
-          case Some("locked") => "not available"
           case None => "empty"
+          case Some("locked") => "not available"
           case Some(s) => s
         }
     }
@@ -61,9 +61,8 @@ object Options {
 
 
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
-    val l =
-      for ((_, state) <- rooms)
-        yield stateToInt(state)
+    val l = for ((_, state) <- rooms)
+      yield stateToInt(state)
 
     l.sum
   }
