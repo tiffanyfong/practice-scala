@@ -13,8 +13,7 @@ Scala might not be best language to use if you're trying to implement clever,
 tricky algorithms. But it is good for clear, unambiguous code.
 
 
-### What is/are your favorite language design choice(s) that the designers of 
-Scala made? Why?
+### What is/are your favorite language design choice(s) that the designers of Scala made? Why?
 
 I like how Scala implemented Options. Options makes my code simpler by avoiding 
 having a separate null case in my function. In other languages like Java, if I 
@@ -29,8 +28,7 @@ underscores prevents useless variable names that distract from the real
 intent of the code.
 
 
-### What is/are your least favorite language design choice(s)? Why? And why do 
-you think the designers made that / those choice(s)?
+### What is/are your least favorite language design choice(s)? Why? And why do you think the designers made that / those choice(s)?
 
 I've been using Scala for a while, so I have trouble coming up with things I 
 don't like about it (on the other hand, I can easily rant about Java). But in my 
