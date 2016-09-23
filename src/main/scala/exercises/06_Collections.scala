@@ -36,6 +36,7 @@ object Collections {
     // fun version
     l match {
       case first :: _ => first
+      case Nil => throw error("no head of empty list")
     }
   }
 
@@ -63,6 +64,7 @@ object Collections {
 
     // fun version
     l match {
+      case Nil => throw error("no tail of empty list")
       case first :: Nil => first
       case first :: rest => lastElementInList(rest)
     }
@@ -144,7 +146,7 @@ object Collections {
    * neat way using recursion. 
    */
   def tails[T](l: List[T]): List[List[T]] =
-    if (l.isEmpty) Nil
+    if (l.isEmpty) List(List())
     else l :: tails(l.tail)
   
   /**
@@ -161,8 +163,11 @@ object Collections {
    * of the two list
    */
   def sumOfTwo(l1: List[Int], l2: List[Int]): List[Int] = {
-    for ((e1, e2) <- l1 zip l2)
-      yield e1 + e2
+    if (l1 == Nil) l2
+    else if (l2 == Nil) l1
+    else
+      for ((e1, e2) <- l1 zip l2)
+        yield e1 + e2
   }
 
   /**
